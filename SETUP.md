@@ -46,9 +46,12 @@ import anthropic
 client = anthropic.Anthropic()          # reads ANTHROPIC_API_KEY
 resp = client.messages.create(
     model="claude-haiku-5-5", max_tokens=200,
+    thinking={"type": "disabled"},
     messages=[{"role": "user", "content": "Say hello."}])
 print(resp.content[0].text)
 ```
+
+Why `thinking` is switched off: by default a Claude reply can start with a thinking block, so the first block is not always the text. The simple examples in this series switch thinking off on the small model and read the first block. The examples about reasoning effort leave it on and join the text blocks instead.
 
 **OpenAI** (`pip install openai`)
 

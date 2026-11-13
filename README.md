@@ -76,9 +76,9 @@ The series is published chapter by chapter, starting with Python. A chapter's fo
 <!--CHAPTERS-->
 | # | Chapter | Planned parts | In this repo |
 |---|---|---|---|
-| 01 | [Python](01-python/) | 25 | 4 parts |
-| 02 | LLM Fundamentals | 18 | coming |
-| 03 | Prompting and Context Engineering | 10 | coming |
+| 01 | [Python](01-python/) | 25 | 25 parts |
+| 02 | [LLM Fundamentals](02-llm-fundamentals/) | 18 | 18 parts |
+| 03 | [Prompting and Context Engineering](03-prompting/) | 10 | 10 parts |
 | 04 | Machine Learning and Deep Learning | 28 | coming |
 | 05 | RAG and Vector Search | 26 | coming |
 | 06 | Agents and Tools | 26 | coming |
