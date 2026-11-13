@@ -1,6 +1,6 @@
 # 01 · Python
 
-25 parts so far. Each folder has the notes, the code from the slides, the follow-along lab and the click-through lesson page.
+26 parts so far. Each folder has the notes, the code from the slides, the follow-along lab and the click-through lesson page.
 
 | Part | Topic | Folder |
 |---|---|---|
@@ -29,3 +29,4 @@
 | 23 | Normalise Once, Keep Tables Whole | [part-23-normalise-once-keep-tables-whole](part-23-normalise-once-keep-tables-whole/) |
 | 24 | Near-Duplicates, Live Coding, Log Counts | [part-24-near-duplicates-live-coding-log-counts](part-24-near-duplicates-live-coding-log-counts/) |
 | 25 | How Python Frees Memory | [part-25-how-python-frees-memory](part-25-how-python-frees-memory/) |
+| Interview Quiz | Ten Questions Interviews Keep Asking | [part-26-ten-questions-interviews-keep-asking](part-26-ten-questions-interviews-keep-asking/) |

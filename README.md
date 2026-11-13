@@ -76,10 +76,10 @@ The series is published chapter by chapter, starting with Python. A chapter's fo
 <!--CHAPTERS-->
 | # | Chapter | Planned parts | In this repo |
 |---|---|---|---|
-| 01 | [Python](01-python/) | 25 | 25 parts |
+| 01 | [Python](01-python/) | 26 | 26 parts |
 | 02 | [LLM Fundamentals](02-llm-fundamentals/) | 18 | 18 parts |
 | 03 | [Prompting and Context Engineering](03-prompting/) | 10 | 10 parts |
-| 04 | Machine Learning and Deep Learning | 28 | coming |
+| 04 | [Machine Learning and Deep Learning](04-ml-and-deep-learning/) | 28 | 28 parts |
 | 05 | RAG and Vector Search | 26 | coming |
 | 06 | Agents and Tools | 26 | coming |
 | 07 | Fine-tuning and Model Choice | 10 | coming |
