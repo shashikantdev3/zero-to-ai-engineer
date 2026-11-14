@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zero to AI Engineer Roadmap</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Nunito:wght@500;700;800&family=Patrick+Hand&display=swap">
+<style>
+body{margin:0}
+/* Layout: notebook page. A left-to-right mind map (root, stages, chapters), then one card per chapter in study order. */
+:root{--paper:#fdfbf3;--paper2:#f5efe0;--rule:#e3e9f1;--ink:#22303f;--soft:#56687b;--line:#9aa8b6;--card:#ffffff;--pink:#ffc7d4;--green:#c6ecd0;--hl:#ffe9a3;
+--hand:'Caveat',cursive;--label:'Patrick Hand','Comic Sans MS',cursive;--body:'Nunito',system-ui,-apple-system,'Segoe UI',sans-serif;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#1b2028;--paper2:#232a34;--rule:#262e39;--ink:#eef2f7;--soft:#a9b6c4;--line:#5b6878;--card:#262d37;--pink:#6b3443;--green:#28503a;--hl:#5d4d1d;color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#1b2028;--paper2:#232a34;--rule:#262e39;--ink:#eef2f7;--soft:#a9b6c4;--line:#5b6878;--card:#262d37;--pink:#6b3443;--green:#28503a;--hl:#5d4d1d;color-scheme:dark}
+body{background:var(--paper);color:var(--ink);font:500 16px/1.5 var(--body);background-image:linear-gradient(var(--rule) 1px,transparent 1px);background-size:100% 34px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 60px}
+header h1{font:700 clamp(40px,7vw,68px)/1 var(--hand);margin:0;text-wrap:balance}
+header h1 span{background:linear-gradient(transparent 60%,var(--hl) 60%,var(--hl) 92%,transparent 92%);padding:0 6px}
+.eyebrow{font:400 18px var(--label);letter-spacing:3px;color:var(--soft);text-transform:uppercase}
+.lede{max-width:64ch;color:var(--soft);margin:12px 0 0}
+.map{margin:28px 0 8px;overflow-x:auto;border:2px solid var(--ink);border-radius:18px;background:var(--card);box-shadow:5px 5px 0 rgba(34,48,63,.12)}
+.map svg{display:block;min-width:980px;width:100%;height:auto}
+.map .lk{fill:none;stroke:var(--line);stroke-width:2.2}
+.map .nd rect{fill:var(--card);stroke:var(--ink);stroke-width:2}
+.map .nd text{fill:var(--ink);font:700 15px var(--body)}
+.map .st rect{fill:var(--paper2)}.map .st text{font:700 21px var(--hand)}
+.map .rt rect{fill:var(--hl);stroke-width:3}.map .rt text{font:700 23px var(--hand)}
+.map a.ch{cursor:pointer}.map a.ch:hover rect,.map a.ch:focus rect{stroke-width:3.5}
+.map a.ch:focus{outline:none}.map a.ch:focus-visible rect{stroke:#d9480f}
+.hint{font:400 16px var(--label);color:var(--soft);letter-spacing:1px}
+h2{font:700 40px/1.1 var(--hand);margin:42px 0 6px}
+.stage{margin-top:36px}.stage>h2 small{display:block;font:400 18px var(--label);letter-spacing:2px;color:var(--soft);margin-top:4px}
+.chs{display:grid;gap:18px;margin-top:14px}
+.ch-card{background:var(--card);border:2px solid var(--ink);border-radius:16px;padding:18px 20px;box-shadow:4px 4px 0 rgba(34,48,63,.1);scroll-margin-top:16px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:18px 26px}
+.ch-card:target{box-shadow:0 0 0 4px var(--hl),4px 4px 0 rgba(34,48,63,.1)}
+.ch-head{grid-column:1/-1;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.num{flex:none;width:46px;height:46px;border-radius:12px;border:2px solid var(--ink);display:grid;place-items:center;font:700 26px var(--hand);color:#22303f}
+.ch-head h3{margin:0;font:800 22px/1.2 var(--body)}
+.ch-head .vids{font:400 16px var(--label);letter-spacing:1px;color:var(--soft)}
+.lab{font:400 15px var(--label);letter-spacing:2px;color:var(--soft);text-transform:uppercase;margin-bottom:6px}
+.topics{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.topics li{border:1.5px solid var(--line);border-radius:999px;padding:3px 12px;font-size:14.5px}
+.out{margin-top:14px;background:var(--green);border-radius:12px;padding:10px 14px;font-weight:700}
+.tags{display:flex;flex-direction:column;gap:10px;margin:0;padding:0;list-style:none}
+.tags li{border-left:4px solid var(--pink);padding:2px 0 2px 12px;min-width:0}
+.co{font:400 17px var(--label);letter-spacing:1px;background:var(--pink);border-radius:6px;padding:0 8px;margin-right:6px}
+.q{font-weight:700}
+.refs{font-size:13.5px;color:var(--soft);margin-top:2px}
+.refs a{color:inherit}
+.none{color:var(--soft);font-style:italic}
+.bars{display:grid;gap:8px;margin-top:12px;max-width:760px}
+.bar{display:grid;grid-template-columns:minmax(0,15em) 1fr 3.2em;gap:12px;align-items:center;font-size:15px}
+.bar i{display:block;height:16px;background:var(--hl);border:1.5px solid var(--ink);border-radius:5px}
+.bar b{font-variant-numeric:tabular-nums;text-align:right}
+.note{max-width:70ch;color:var(--soft)}
+.src{columns:2 340px;column-gap:28px;font-size:14px;padding-left:1.4em}
+.src li{break-inside:avoid;margin-bottom:6px}
+.src a{color:var(--ink)}
+footer{margin-top:40px;font:400 16px var(--label);color:var(--soft);letter-spacing:1px}
+@media (max-width:720px){.ch-card{grid-template-columns:minmax(0,1fr)}.bar{grid-template-columns:minmax(0,9em) 1fr 3em}}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+</head><body><div class="wrap">
+<header>
+<div class="eyebrow">Dev With Data · study map</div>
+<h1><span>Zero to AI Engineer</span></h1>
+<p class="lede">Seventeen chapters in the order to study them. Each chapter shows its topics, what you can do after it, and real interview questions that named companies have asked, with the report behind every tag.</p>
+</header>
+<div class="map" aria-label="Mind map of the series"><svg id="mm" role="img" aria-label="Mind map: Zero to AI Engineer, six stages, seventeen chapters"></svg></div>
+<div class="hint">Tap a chapter in the map to jump to its card. On a phone, scroll the map sideways.</div>
+<div id="stages"></div>
+<section>
+<h2>What came up most</h2>
+<p class="note">How many of the 23 first-hand interview reports mention each topic. A small sample: read these as signals, not rankings.</p>
+<div class="bars" id="bars"></div>
+</section>
+<section>
+<h2>How the tags were chosen</h2>
+<p class="note">A company tag appears only where a first-hand candidate report (Glassdoor or Jointaro) names that company and that topic. Aggregator question banks were read but not used as evidence. Nobody publishes how often a question is asked, so no counts are invented: every number on this page is out of these 23 reports. Chapter 9 has thin evidence; no report read here named prompt injection directly.</p>
+<ol class="src" id="src"></ol>
+</section>
+<footer>Zero to AI Engineer · youtube.com/@dev_with_data · research checked 14 Nov 2026</footer>
+</div>
+<script>
+const D = {"stages": [{"id": "found", "name": "Foundations", "sub": "the base every AI role assumes", "chapters": [1, 2, 3, 4]}, {"id": "build", "name": "Build", "sub": "the two patterns behind most AI apps", "chapters": [5, 6]}, {"id": "good", "name": "Make it good", "sub": "tune it, measure it, secure it", "chapters": [7, 8, 9]}, {"id": "ship", "name": "Ship", "sub": "run it in production and design it on a whiteboard", "chapters": [10, 11]}, {"id": "core", "name": "Interview core", "sub": "the rounds every engineer faces", "chapters": [12, 13, 14]}, {"id": "cloud", "name": "Cloud and Microsoft", "sub": "where enterprise AI actually runs", "chapters": [15, 16, 17]}], "chapters": [{"n": 1, "name": "Python for AI Engineers", "color": "#ffe066", "parts": 26, "topics": ["Core language and classic traps", "Functions, decorators, generators", "OOP, errors and typing", "Concurrency: threads, async, GIL", "Testing and live coding"], "outcome": "Write clean, tested Python and pass a Python coding round", "tags": [{"company": "Deloitte", "q": "Python coding round, in two Gen AI Engineer interviews", "refs": ["R1", "R2"]}, {"company": "Infosys", "q": "FastAPI: concurrency versus parallelism", "refs": ["R15"]}, {"company": "Capgemini", "q": "Python coding in a GenAI Engineer round", "refs": ["R13"]}]}, {"n": 2, "name": "LLM Fundamentals", "color": "#a5f0c5", "parts": 18, "topics": ["Tokens, context and cost", "Inside the transformer: attention", "Decoding and sampling", "Model behaviour and choice"], "outcome": "Explain how an LLM reads, predicts and writes, and what each token costs", "tags": [{"company": "Deloitte", "q": "What is a transformer?", "refs": ["R3"]}, {"company": "Google", "q": "Implement a multi-head attention class", "refs": ["R18"]}, {"company": "KPMG", "q": "How does an LLM stop generating tokens?", "refs": ["R8"]}, {"company": "Fidelity", "q": "Same prompt again: same answer?", "refs": ["R16"]}]}, {"n": 3, "name": "Prompt and Context Engineering", "color": "#ffc78f", "parts": 10, "topics": ["Prompt structure", "Few-shot and chain of thought", "Context engineering", "Structured output"], "outcome": "Write prompts and structured outputs that hold up, and control what enters the context", "tags": [{"company": "Fidelity", "q": "When should you use few-shot prompting? Context poisoning?", "refs": ["R16"]}, {"company": "Capgemini", "q": "Prompting and LLMs, in a GenAI Engineer round", "refs": ["R12"]}, {"company": "Anthropic", "q": "Rewrite a prompt until outputs match the target", "refs": ["R23"]}]}, {"n": 4, "name": "ML and Deep Learning", "color": "#c9b8ff", "parts": 28, "topics": ["Probability and statistics", "Training mechanics", "Metrics and calibration", "Model families", "Production ML", "ML coding from scratch"], "outcome": "Explain and code the core ML ideas, pick the right metric, and talk deep learning", "tags": [{"company": "Accenture", "q": "Explain the principles behind GANs", "refs": ["R9"]}, {"company": "Capgemini", "q": "ANN, RNN and LSTM", "refs": ["R13"]}, {"company": "IBM", "q": "ML, deep learning and performance metrics", "refs": ["R22"]}]}, {"n": 5, "name": "RAG and Vector Search", "color": "#9fe3f5", "parts": 26, "topics": ["Embeddings", "Vector search", "Chunk, search, rerank", "Advanced RAG", "Measuring retrieval", "Document AI"], "outcome": "Build, debug and measure a RAG system from documents to cited answers", "tags": [{"company": "Deloitte", "q": "What is RAG architecture? How do you search a very big RAG?", "refs": ["R2", "R3", "R5"]}, {"company": "EY", "q": "How do you prevent hallucination in RAG?", "refs": ["R6", "R7"]}, {"company": "KPMG", "q": "Chunking and caching", "refs": ["R8"]}, {"company": "Fidelity", "q": "How do you chunk a PDF? Why a vector database?", "refs": ["R16"]}]}, {"n": 6, "name": "Agents and Tools", "color": "#ffb3c7", "parts": 26, "topics": ["Tool calling", "The agent loop", "Frameworks", "MCP and A2A", "Multi-agent systems", "Design briefs and take-homes"], "outcome": "Build agents that call tools safely, and defend the design", "tags": [{"company": "Deloitte", "q": "RAG versus agents. Shared memory between agents", "refs": ["R2"]}, {"company": "Fidelity", "q": "What is a ReAct agent? How do you stop cycles in LangGraph?", "refs": ["R16"]}, {"company": "EY", "q": "Agentic workflows", "refs": ["R7"]}]}, {"n": 7, "name": "Fine-tuning and Model Choice", "color": "#d4f08a", "parts": 10, "topics": ["When to fine-tune", "LoRA, QLoRA, DPO", "Choosing and pricing models", "KV cache and quantization", "Serving with vLLM and Ollama"], "outcome": "Decide RAG or fine-tuning, and choose, size and serve a model you can defend", "tags": [{"company": "Mistral AI", "q": "Explain LoRA fine-tuning. RAG or fine-tuning?", "refs": ["R17"]}, {"company": "Infosys", "q": "RAG versus fine-tuning. Deploying a local LLM", "refs": ["R15"]}, {"company": "Deloitte", "q": "What is one-bit quantization?", "refs": ["R1"]}, {"company": "Capgemini", "q": "Quantization and Ollama", "refs": ["R11"]}]}, {"n": 8, "name": "LLM Evaluation", "color": "#ffd28a", "parts": 11, "topics": ["Golden sets and honest test data", "Graders and metrics", "RAG and agent metrics", "LLM as judge", "Hallucination"], "outcome": "Prove that a change made things better, and gate releases on evidence", "tags": [{"company": "Deloitte", "q": "Metrics: BLEU and ROUGE", "refs": ["R4"]}, {"company": "EY", "q": "How do you prevent hallucination?", "refs": ["R6"]}, {"company": "Fidelity", "q": "How do you evaluate your prompts and answers?", "refs": ["R16"]}]}, {"n": 9, "name": "Security and Guardrails", "color": "#ffaaa0", "parts": 11, "topics": ["Prompt injection and leaks", "Architectural defences", "Guardrails in production", "Privacy and compliance"], "outcome": "Find the attack paths in an AI app and close them in code", "tags": [{"company": "Fidelity", "q": "Context poisoning in chatbots", "refs": ["R16"]}]}, {"n": 10, "name": "Production and LLMOps", "color": "#a8d8ff", "parts": 38, "topics": ["Cost and latency", "The FastAPI backend", "Deployment", "Observability", "Agents in production", "API security"], "outcome": "Ship an AI service that is fast, affordable and observable", "tags": [{"company": "Fidelity", "q": "Validate auth tokens in FastAPI with dependency injection", "refs": ["R16"]}, {"company": "Infosys", "q": "Docker CMD versus ENTRYPOINT. Failed Celery tasks", "refs": ["R15"]}, {"company": "Capgemini", "q": "A candidate rejected for no deployment experience", "refs": ["R11"]}]}, {"n": 11, "name": "AI System Design", "color": "#c7f0d8", "parts": 17, "topics": ["The answer shape", "Docs chatbot at scale", "Support ticket agent", "Enterprise AI platform", "Customer scenario round"], "outcome": "Run an AI design round from requirements to trade-offs", "tags": [{"company": "Deloitte", "q": "Scenario: how would you design an agent?", "refs": ["R2"]}, {"company": "Fidelity", "q": "Architecture for a multi-agent system", "refs": ["R16"]}, {"company": "Accenture", "q": "Which approach when you build a chatbot?", "refs": ["R10"]}]}, {"n": 12, "name": "System Design and CS", "color": "#e0c8ff", "parts": 50, "topics": ["Fundamentals and building blocks", "Classic design problems", "Operating systems and networking", "Databases and SQL", "Web security basics"], "outcome": "Design classic systems and answer CS fundamentals with confidence", "tags": [{"company": "Deloitte", "q": "Design an e-commerce platform for one million daily users", "refs": ["R21"]}, {"company": "Infosys", "q": "Database indexing", "refs": ["R15"]}, {"company": "IBM", "q": "Two SQL queries in the online test", "refs": ["R22"]}]}, {"n": 13, "name": "Data Structures and Algorithms", "color": "#ffe066", "parts": 36, "topics": ["How the round works", "Core patterns", "Applied coding", "Machine coding"], "outcome": "Solve interview problems with the right pattern, and talk while you code", "tags": [{"company": "Amazon", "q": "Cycle in a graph. A design like an LRU cache", "refs": ["R20"]}, {"company": "Microsoft", "q": "Call times: when was no phone busy?", "refs": ["R19"]}, {"company": "IBM", "q": "Two DSA questions", "refs": ["R22"]}]}, {"n": 14, "name": "Behavioral Interviews", "color": "#ffc78f", "parts": 29, "topics": ["Positioning", "Story craft", "Walk me through your project", "Failure, and disagree and commit", "Company frameworks"], "outcome": "Tell true stories that show judgement, even under follow-up questions", "tags": [{"company": "Amazon", "q": "Leadership principle questions in every round", "refs": ["R20"]}, {"company": "Deloitte", "q": "A deployment fails in a client demo. What do you do?", "refs": ["R21"]}, {"company": "Accenture", "q": "Why switch after two years?", "refs": ["R10"]}]}, {"n": 15, "name": "Microsoft AI Stack", "color": "#a5f0c5", "parts": 15, "topics": ["Tenant governance", "ALM and Dataverse", "Power Apps and Power Automate", "Copilot Studio", "Agent identity", "Microsoft Foundry"], "outcome": "Build and govern Copilot Studio and Power Platform solutions an enterprise trusts", "tags": [{"company": "Capgemini", "q": "How can a flow keep running after an error?", "refs": ["R14"]}]}, {"n": 16, "name": "Cloud for AI Engineers", "color": "#9fe3f5", "parts": 14, "topics": ["Identity", "Compute and storage", "Networking", "State and messaging", "Operations and cost", "AI services on each cloud"], "outcome": "Map an AI system onto AWS, Azure or GCP, and defend each choice", "tags": [{"company": "Deloitte", "q": "NACLs versus security groups. Spot, reserved or on-demand?", "refs": ["R21"]}, {"company": "Amazon", "q": "A five-minute discussion on an AWS service", "refs": ["R20"]}]}, {"n": 17, "name": "Shipping AI on Azure", "color": "#c9b8ff", "parts": 16, "topics": ["Solution templates", "Bicep and Verified Modules", "Identity and RBAC", "azd deployment", "Agent Framework and Foundry", "Repo standards and open source"], "outcome": "Deploy a repeatable, secure AI solution on Azure from one repo", "tags": [{"company": "Deloitte", "q": "Feedback: more depth on Terraform modules. GDPR in cloud deployments", "refs": ["R21"]}]}], "counts": [["RAG", 12], ["Python", 6], ["Transformers and LLM internals", 6], ["Classic ML and deep learning", 6], ["Fine-tuning, quantization, local models", 5], ["Agents", 4], ["Prompting", 4], ["Evaluation", 4], ["Deployment and backend", 3], ["DSA and SQL coding", 3], ["Behavioural", 3]], "sources": {"R1": {"company": "Deloitte", "what": "Gen AI Engineer, India, Dec 2024", "url": "https://www.jointaro.com/interviews/companies/deloitte/experiences/gen-ai-engineer-india-december-1-2024-no-offer-negative-2c45121c"}, "R2": {"company": "Deloitte", "what": "Gen AI Engineer, Bengaluru, Jun 2025", "url": "https://www.jointaro.com/interviews/companies/deloitte/experiences/gen-ai-engineer-bengaluru-karnataka-june-1-2025-no-offer-positive-5eb74f34/"}, "R3": {"company": "Deloitte", "what": "GenAI Engineer, Mumbai, Aug 2024", "url": "https://www.jointaro.com/interviews/companies/deloitte/experiences/genai-engineer-mumbai-maharashtra-august-1-2024-no-offer-positive-168852f5/"}, "R4": {"company": "Deloitte", "what": "Gen AI Engineer, Glassdoor", "url": "https://www.glassdoor.co.in/Interview/Deloitte-Gen-AI-Engineer-Interview-Questions-EI_IE2763.0,8_KO9,24.htm"}, "R5": {"company": "Deloitte", "what": "AI Engineer, Cairo, Oct 2023", "url": "https://static.glassdoor.fr/Interview/Deloitte-AI-Engineer-Interview-Questions-EI_IE2763.0,8_KO9,20_IP3.htm"}, "R6": {"company": "EY", "what": "Gen AI Engineer, Glassdoor", "url": "https://www.glassdoor.co.in/Interview/EY-Gen-AI-Engineer-Interview-Questions-EI_IE2784.0,2_KO3,18.htm"}, "R7": {"company": "EY", "what": "AI Engineer, Amsterdam, Apr 2026", "url": "https://static-pc.glassdoor.fr/Interview/EY-AI-Engineer-Interview-Questions-EI_IE2784.0,2_KO3,14.htm"}, "R8": {"company": "KPMG", "what": "Generative AI Engineer, Glassdoor", "url": "https://clear.glassdoor.nl/Interview/KPMG-Generative-AI-Engineer-Interview-Questions-EI_IE2867.0,4_KO5,27.htm"}, "R9": {"company": "Accenture", "what": "AI Engineer, Chennai, Sep 2025", "url": "https://www.jointaro.com/interviews/companies/accenture/experiences/ai-engineer-chennai-tamil-nadu-september-15-2025-no-offer-neutral-b030d79d"}, "R10": {"company": "Accenture", "what": "AI Engineer, Glassdoor", "url": "https://static.glassdoor.ch/Interview/Accenture-AI-Engineer-Interview-Questions-EI_IE4138.0,9_KO10,21_IP2.htm"}, "R11": {"company": "Capgemini", "what": "GenAI Engineer, Hyderabad, Feb 2025", "url": "https://www.jointaro.com/interviews/companies/capgemini/experiences/genai-engineer-hyderabad-february-1-2025-no-offer-positive-f633d4cd/"}, "R12": {"company": "Capgemini", "what": "Gen AI Engineer, Hyderabad, Mar 2025", "url": "https://www.jointaro.com/interviews/companies/capgemini/experiences/gen-ai-engineer-hyderabad-march-29-2025-declined-offer-positive-ed8bdb1e"}, "R13": {"company": "Capgemini", "what": "GenAI Engineer, India, Aug 2025", "url": "https://www.jointaro.com/interviews/companies/capgemini/experiences/genai-engineer-india-august-13-2025-accepted-offer-positive-ac5febe3"}, "R14": {"company": "Capgemini", "what": "Power Platform Developer, UK, Apr 2025", "url": "https://www.jointaro.com/interviews/companies/capgemini/experiences/power-platform-developer-united-kingdom-april-22-2025-accepted-offer-positive-799198a5"}, "R15": {"company": "Infosys", "what": "Python Gen AI Engineer, Jun 2026", "url": "https://www.glassdoor.com/Interview/Infosys-Interview-E7927-RVW104494652.htm"}, "R16": {"company": "Fidelity", "what": "AI/ML Engineer, Texas, Oct 2025", "url": "https://www.jointaro.com/interviews/companies/fidelity-investments/experiences/aiml-engineer-west-lake-hills-texas-october-1-2025-no-offer-positive-012549fd/"}, "R17": {"company": "Mistral AI", "what": "Applied AI Engineer, Luxembourg, Jul 2025", "url": "https://www.jointaro.com/interviews/companies/mistral-ai/experiences/applied-ai-engineer-luxemburg-july-1-2025-no-offer-negative-9129fa13"}, "R18": {"company": "Google", "what": "Machine Learning Engineer, Aug 2025", "url": "https://www.glassdoor.co.uk/Interview/Google-Machine-Learning-Engineer-Interview-Questions-EI_IE9079.0,6_KO7,32.htm"}, "R19": {"company": "Microsoft", "what": "AI Software Engineer, Glassdoor", "url": "https://clear.glassdoor.nl/Interview/Microsoft-AI-Software-Engineer-Interview-Questions-EI_IE1651.0,9_KO10,30.htm"}, "R20": {"company": "Amazon", "what": "SDE2 Backend, India, May 2025", "url": "https://www.jointaro.com/interviews/companies/amazon/experiences/sde2-backend-india-may-13-2025-declined-offer-positive-28ef8488/"}, "R21": {"company": "Deloitte", "what": "Senior Cloud Engineer, Gurgaon, Mar 2025", "url": "https://www.jointaro.com/interviews/companies/deloitte/experiences/senior-cloud-engineer-gurgaon-haryana-march-1-2025-accepted-offer-positive-861ce9ab/"}, "R22": {"company": "IBM", "what": "AI Engineer, Bengaluru, Feb 2025", "url": "https://www.jointaro.com/interviews/companies/ibm/experiences/ai-engineer-bengaluru-february-1-2025-no-offer-positive-c881d31a"}, "R23": {"company": "Anthropic", "what": "AI Prompt Engineer, San Francisco, Sep 2023", "url": "https://www.glassdoor.com/Interview/Anthropic-Interview-E8109027-RVW81580967.htm"}}};
+const NS = "http://www.w3.org/2000/svg", esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const byN = {}; D.chapters.forEach(c => byN[c.n] = c);
+const stageOf = {}; D.stages.forEach(s => s.chapters.forEach(n => stageOf[n] = s));
+function sv(t, a, txt){ const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); if (txt != null) e.textContent = txt; return e; }
+(function map(){
+  const svg = document.getElementById("mm"), W = 1180, rowH = 40, top = 30;
+  const L = D.stages.slice(0, 3), R = D.stages.slice(3);
+  const rows = side => side.reduce((a, s) => a + s.chapters.length, 0) + side.length - 1;
+  const H = Math.max(rows(L), rows(R)) * rowH + top * 2; svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  const root = {x: W / 2, y: H / 2, w: 180, h: 84};
+  const g = sv("g"); svg.appendChild(g);
+  const box = (cls, x, y, w, h, label, color) => { const n = sv("g", {class: "nd " + cls}); const r = sv("rect", {x: x - w / 2, y: y - h / 2, width: w, height: h, rx: 12}); if (color) r.style.fill = color; n.appendChild(r);
+    const t = sv("text", {x, y: y + 5, "text-anchor": "middle"}, label); n.appendChild(t); if (color) t.style.fill = "#22303f"; return n; };
+  const link = (x1, y1, x2, y2) => { const mx = (x1 + x2) / 2; g.appendChild(sv("path", {class: "lk", d: `M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`})); };
+  const nodes = [];
+  [[L, -1], [R, 1]].forEach(([side, dir]) => {
+    const total = rows(side) * rowH; let y = (H - total) / 2 + rowH / 2;
+    const sx = W / 2 + dir * 210, cx = W / 2 + dir * 450, sw = 180, cw = 260;
+    side.forEach(st => {
+      const ys = st.chapters.map((n, i) => y + i * rowH), sy = (ys[0] + ys[ys.length - 1]) / 2;
+      link(root.x + dir * root.w / 2, root.y, sx - dir * sw / 2, sy);
+      nodes.push(box("st", sx, sy, sw, 44, st.name));
+      st.chapters.forEach((n, i) => { const c = byN[n];
+        link(sx + dir * sw / 2, sy, cx - dir * cw / 2, ys[i]);
+        const a = sv("a", {href: "#ch" + n, class: "ch", "aria-label": `Chapter ${n}: ${c.name}`}); a.appendChild(box("cn", cx, ys[i], cw, 32, n + ". " + c.name, c.color)); nodes.push(a); });
+      y = ys[ys.length - 1] + rowH * 2;
+    });
+  });
+  nodes.forEach(n => svg.appendChild(n));
+  svg.appendChild(box("rt", root.x, root.y, root.w, root.h, "Zero to AI Engineer"));
+  svg.querySelectorAll(".cn text").forEach(t => { t.style.fontSize = "14px"; });
+})();
+(function cards(){
+  const host = document.getElementById("stages");
+  D.stages.forEach(st => {
+    const sec = document.createElement("section"); sec.className = "stage";
+    sec.innerHTML = `<h2>${esc(st.name)}<small>${esc(st.sub)}</small></h2><div class="chs"></div>`;
+    const list = sec.querySelector(".chs");
+    st.chapters.forEach(n => { const c = byN[n], art = document.createElement("article"); art.className = "ch-card"; art.id = "ch" + n;
+      const tags = c.tags.map(t => `<li><span class="co">${esc(t.company)}</span><span class="q">${esc(t.q)}</span><div class="refs">${t.refs.map(r => { const s = D.sources[r]; return `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(r)}: ${esc(s.company)}, ${esc(s.what)}</a>`; }).join(" · ")}</div></li>`).join("");
+      art.innerHTML = `<div class="ch-head"><span class="num" style="background:${c.color}">${n}</span><h3>${esc(c.name)}</h3><span class="vids">${c.parts} videos</span></div>
+        <div><div class="lab">Topics</div><ul class="topics">${c.topics.map(t => `<li>${esc(t)}</li>`).join("")}</ul><div class="out">After this chapter: ${esc(c.outcome)}</div></div>
+        <div><div class="lab">Asked in real interviews</div><ul class="tags">${tags}</ul>${n === 9 ? '<p class="none">Thin evidence: one related question. No report read here named prompt injection directly.</p>' : ""}</div>`;
+      list.appendChild(art); });
+    host.appendChild(sec);
+  });
+})();
+(function bars(){
+  const b = document.getElementById("bars"), mx = 23;
+  D.counts.forEach(([t, k]) => { const r = document.createElement("div"); r.className = "bar"; r.innerHTML = `<span>${esc(t)}</span><span><i style="width:${(k / mx * 100).toFixed(1)}%"></i></span><b>${k}/23</b>`; b.appendChild(r); });
+  const ol = document.getElementById("src");
+  Object.entries(D.sources).forEach(([k, s]) => { const li = document.createElement("li"); li.innerHTML = `<b>${esc(k)}</b> ${esc(s.company)}, ${esc(s.what)}. <a href="${esc(s.url)}" target="_blank" rel="noopener">Report</a>`; ol.appendChild(li); });
+})();
+</script>
+
+</body></html>

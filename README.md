@@ -54,6 +54,7 @@ zero-to-ai-engineer/
 ├── README.md            you are here
 ├── SETUP.md             Python setup, API keys, and the same call on OpenAI or Gemini
 ├── FREE_TOOLS.md        free websites to try the ideas without an API key
+├── 00-roadmap/          the study map: chapters in order, outcomes, company-tagged questions
 ├── 01-python/           one folder per chapter
 │   ├── README.md        the chapter's parts
 │   └── part-01-.../     one folder per video
@@ -71,6 +72,8 @@ Every code file was run when its folder was built. If a file needs a package, a 
   <img src="assets/roadmap.png" alt="AI engineer road map: Python, LLM fundamentals, prompting, machine learning, RAG, agents, fine-tuning, evaluation, security, production, AI system design, cloud, system design, data structures and behavioral interviews" width="100%">
 </p>
 
+**Start here:** watch the roadmap video, then open the [roadmap and interactive mind map](00-roadmap/). It shows every chapter's topics, what you can do after it, and real interview questions tagged by the company that asked them.
+
 The series is published chapter by chapter, starting with Python. A chapter's folder appears here when its videos go live.
 
 <!--CHAPTERS-->
@@ -80,11 +83,11 @@ The series is published chapter by chapter, starting with Python. A chapter's fo
 | 02 | [LLM Fundamentals](02-llm-fundamentals/) | 18 | 18 parts |
 | 03 | [Prompting and Context Engineering](03-prompting/) | 10 | 10 parts |
 | 04 | [Machine Learning and Deep Learning](04-ml-and-deep-learning/) | 28 | 28 parts |
-| 05 | RAG and Vector Search | 26 | coming |
-| 06 | Agents and Tools | 26 | coming |
-| 07 | Fine-tuning and Model Choice | 10 | coming |
-| 08 | Evaluation | 11 | coming |
-| 09 | Security and Guardrails | 11 | coming |
+| 05 | [RAG and Vector Search](05-rag/) | 26 | 26 parts |
+| 06 | [Agents and Tools](06-agents/) | 26 | 26 parts |
+| 07 | [Fine-tuning and Model Choice](07-fine-tuning-and-model-choice/) | 10 | 10 parts |
+| 08 | [Evaluation](08-evaluation/) | 11 | 11 parts |
+| 09 | [Security and Guardrails](09-security-and-guardrails/) | 11 | 11 parts |
 | 10 | Production and LLMOps | 38 | coming |
 | 11 | AI System Design | 17 | coming |
 | 12 | System Design and CS Fundamentals | 50 | coming |
