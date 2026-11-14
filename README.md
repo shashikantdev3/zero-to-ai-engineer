@@ -88,7 +88,7 @@ The series is published chapter by chapter, starting with Python. A chapter's fo
 | 07 | [Fine-tuning and Model Choice](07-fine-tuning-and-model-choice/) | 10 | 10 parts |
 | 08 | [Evaluation](08-evaluation/) | 11 | 11 parts |
 | 09 | [Security and Guardrails](09-security-and-guardrails/) | 11 | 11 parts |
-| 10 | Production and LLMOps | 38 | coming |
+| 10 | [Production and LLMOps](10-production/) | 38 | 10 parts |
 | 11 | AI System Design | 17 | coming |
 | 12 | System Design and CS Fundamentals | 50 | coming |
 | 13 | Data Structures and Algorithms | 36 | coming |
